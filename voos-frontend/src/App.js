@@ -4,24 +4,28 @@ import "./App.css";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [voos, setVoos] = useState([]); // Remova o array de notes que existia na versão anterior
-
+  var axios = require("axios").default;
+  const [voos, setVoos] = useState([]);
+  var options = {
+    method: 'GET',
+    url: 'https://advanced-movie-search.p.rapidapi.com/genre/movie/list',
+    headers: {
+      'x-rapidapi-host': 'advanced-movie-search.p.rapidapi.com',
+      'x-rapidapi-key': 'e9a145f218msh1c9665147f78266p12c595jsn9c56042d252a'
+    }
+  };
   useEffect(() => {
     axios
-      .get("https://rapidapi.com/skyscanner/api/skyscanner-flight-search/")
-      .then((res) => setVoos(res.data));
+      .request(options)
+      .then((res) => setVoos(res.data.genres));
   }, []);
-
   console.log(voos);
+  console.log(options);
 
   return (
     
     <div className="App">
-      {voos.map((voo) => (
-        <Voo key={`voo__${voo.id}`} title={voo.title}>
-          {voo.content}
-        </Voo>
-      ))}
+        {voos.map}
     </div>
   );
 }
