@@ -4,7 +4,7 @@ import "./index.css";
 export default function Voo(props) {
   return (
     <div className="card">
-      <h3 className="card-title">{props.genres}</h3>
+      <p className="card-title">{props.genre}</p>
     </div>
   );
 }
