@@ -1,4 +1,3 @@
-import axios from "axios";
 import Voo from "./components/Voo";
 import "./App.css";
 import { useEffect, useState } from "react";
@@ -20,12 +19,13 @@ function App() {
       .then((res) => setVoos(res.data.genres));
   }, []);
   console.log(voos);
-  console.log(options);
 
   return (
     
     <div className="App">
-        {voos.map}
+      {voos.map((voo)=>(
+        <Voo>{voo}</Voo>
+      ))}
     </div>
   );
 }
