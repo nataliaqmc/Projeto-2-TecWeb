@@ -1,4 +1,4 @@
-import Voo from "./components/Voo";
+import Movie from "./components/Movie";
 import "./App.css";
 import { useEffect, useState } from "react";
 
@@ -60,12 +60,12 @@ function App() {
   return (
     <div>
       <div className="App-header">
-          <div>Movies & Series</div>
+          <div>Nome do site</div>
           <img className="imagem" src="/heart.png" />
       </div>
       <div className="App">
         {genres.map((genre)=>(
-          <Voo genre={genre.genre}>{genres}</Voo>
+          <Movie genre={genre.genre}>{genres}</Movie>
         ))}
       </div>
     </div>
