@@ -2,9 +2,10 @@
     width: 200px;
     display: flex;
     flex-direction: row;
+    align-self: stretch;
     justify-content: center;
     align-items: center;
-    background-color: pink;
+    background-color: #cbcbcb;
     min-height: 100px;
     margin: 10px 5px;
     padding: 10px;

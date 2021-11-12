@@ -58,11 +58,16 @@ function App() {
   console.log(genreSeries);
   
   return (
-    
-    <div className="App">
-      {genres.map((genre)=>(
-        <Voo genre={genre.genre}>{genres}</Voo>
-      ))}
+    <div>
+      <div className="App-header">
+          <div>Movies & Series</div>
+          <img className="imagem" src="/heart.png" />
+      </div>
+      <div className="App">
+        {genres.map((genre)=>(
+          <Voo genre={genre.genre}>{genres}</Voo>
+        ))}
+      </div>
     </div>
   );
 }
