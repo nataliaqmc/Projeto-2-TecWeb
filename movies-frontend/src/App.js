@@ -43,7 +43,7 @@ function App() {
   // Requisição de todas as séries de um genre:
   var series_by_genre = {
     method: 'GET',
-    url: 'https://data-imdb1.p.rapidapi.com/series/byGen/Drama/',
+    url: 'https://data-imdb1.p.rapidapi.com/series/byGen/Romance/',
     params: {page_size: '50'},
     headers: {
       'x-rapidapi-host': 'data-imdb1.p.rapidapi.com',
@@ -60,12 +60,12 @@ function App() {
   return (
     <div>
       <div className="App-header">
-          <div>Nome do site</div>
+          <div>Series</div>
           <img className="imagem" src="/heart.png" />
       </div>
       <div className="App">
-        {genres.map((genre)=>(
-          <Movie genre={genre.genre}>{genres}</Movie>
+        {genreSeries.map((genre)=>(
+          <Movie title={genre.title}>{genreSeries}</Movie>
         ))}
       </div>
     </div>
