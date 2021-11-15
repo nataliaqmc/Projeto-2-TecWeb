@@ -5,6 +5,7 @@ export default function Movie(props) {
   return (
     <div className="card">
       <p className="card-title">{props.title}</p>
+      <img className="imagem" src="/heart.png" />
     </div>
   );
 }
