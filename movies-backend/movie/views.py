@@ -7,6 +7,7 @@ from .serializers import NoteSerializer
 
 # SUAS OUTRAS FUNÇÕES CONTINUAM AQUI
 
+# Getting movie by id:
 @api_view(['GET', 'POST'])
 def api_movie(request, movie_id):
     try:
@@ -18,4 +19,13 @@ def api_movie(request, movie_id):
         movie.title = new_note_data['title']
         movie.save()
     serialized_movie = NoteSerializer(movie)
+    return Response(serialized_movie.data)
+
+
+# Getting all favorite movies:
+@api_view(['GET', 'POST'])
+def api_all_movies(request):
+    if request.method == 'GET':
+        movie = Movie.objects
+        serialized_movie = NoteSerializer(movie, many=True)
     return Response(serialized_movie.data)

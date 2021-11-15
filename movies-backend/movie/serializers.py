@@ -6,3 +6,4 @@ class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
         fields = ['id', 'title']
+        

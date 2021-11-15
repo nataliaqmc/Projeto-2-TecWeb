@@ -52,7 +52,7 @@ function App() {
   };
   useEffect(() => {
     axios
-      .get('http://127.0.0.1:8000/api/movie/3/')
+      .get('http://127.0.0.1:8000/api/movie/')
       .then((res) => setGenreSeries(res.data));
   }, []);
   console.log(genreSeries);
@@ -64,8 +64,8 @@ function App() {
           <img className="imagem" src="/heart.png" />
       </div>
       <div className="App">
-        {genreSeries.map((genre)=>(
-          <Movie title={genre.title}>{genreSeries}</Movie>
+        {genreMovies.map((genre)=>(
+          <Movie title={genre.title}>{genreMovies}</Movie>
         ))}
       </div>
     </div>
