@@ -21,6 +21,17 @@ def api_movie(request, movie_id):
     serialized_movie = NoteSerializer(movie)
     return Response(serialized_movie.data)
 
+# Favoritando filme:
+@api_view(['GET', 'POST'])
+def api_favoritar(request, title):
+    if request.method == 'POST':
+        movie = Movie.objects
+        serialized_movie = NoteSerializer(movie)
+        newMovie = request.data
+        movie.title = newMovie['title']
+        movie.save()
+    serialized_movie = NoteSerializer(movie)
+    return Response(serialized_movie.data)
 
 # Getting all favorite movies:
 @api_view(['GET', 'POST'])
