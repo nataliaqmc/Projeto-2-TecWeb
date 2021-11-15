@@ -9,29 +9,28 @@ from .serializers import NoteSerializer
 
 # Getting movie by id:
 @api_view(['GET', 'POST'])
-def api_movie(request, id):
-    try:
-        movie = Movie.objects.get(id=id)
-    except Movie.DoesNotExist:
-        raise Http404()
+def api_movie(request,movie_id,movie_title):
     if request.method == 'POST':
-        new_note_data = request.data
-        movie.title = new_note_data['title']
-        movie.save()
-    serialized_movie = NoteSerializer(movie)
+        try:
+            Movie.objects.get(imdb_id=movie_id)
+        except:
+            Movie.objects.create(title=movie_title,imdb_id=movie_id)
+    movie = Movie.objects
+    movie.title = movie_title
+    movie.imdb_id = movie_id
+    serialized_movie = NoteSerializer(Movie.objects)
     return Response(serialized_movie.data)
 
 # Favoritando filme:
-@api_view(['GET', 'POST'])
-def api_favoritar(request):
+@api_view(['GET', 'POST','DELETE'])
+def api_delete(request,movie_id, movie_title):
     if request.method == 'POST':
-        movie = Movie.objects
+        Movie.objects.delete(id=9)
         
-        serialized_movie = NoteSerializer(movie)
-        newMovie = request.data
-        movie.title = newMovie['title']
-        movie.save()
-    serialized_movie = NoteSerializer(movie)
+    movie = Movie.objects
+    movie.title = movie_title
+    movie.imdb_id = movie_id
+    serialized_movie = NoteSerializer(Movie.objects)
     return Response(serialized_movie.data)
 
 # Getting all favorite movies:

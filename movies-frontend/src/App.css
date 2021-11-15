@@ -45,3 +45,7 @@
 .imagem {
   height: 2rem;
 }
+.titulo {
+  color: white;
+  text-decoration: none;
+}

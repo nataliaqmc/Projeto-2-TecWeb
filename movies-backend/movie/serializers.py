@@ -5,5 +5,5 @@ from .models import Movie
 class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
-        fields = ['id', 'title']
+        fields = ['imdb_id', 'title']
         

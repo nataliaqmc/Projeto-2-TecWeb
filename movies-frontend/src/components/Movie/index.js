@@ -5,10 +5,11 @@ function favoritar (title,id){
   var axios = require("axios").default;
   const favoritar = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:8000/api/movie/'+id+"/", {'title':title, 'imdb_id':id})
+    axios.post('http://localhost:8000/api/movie/'+title+'/'+id+"/", {'title':title, 'imdb_id':id})
   }
   return favoritar
 }
+
 
 export default function Movie(props) {
   console.log(props.title)
