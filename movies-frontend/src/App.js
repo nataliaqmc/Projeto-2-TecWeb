@@ -52,8 +52,8 @@ function App() {
   };
   useEffect(() => {
     axios
-      .request(series_by_genre)
-      .then((res) => setGenreSeries(res.data.results));
+      .get('http://127.0.0.1:8000/api/movie/3/')
+      .then((res) => setGenreSeries(res.data));
   }, []);
   console.log(genreSeries);
   
