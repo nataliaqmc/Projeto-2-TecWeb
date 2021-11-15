@@ -9,9 +9,9 @@ from .serializers import NoteSerializer
 
 # Getting movie by id:
 @api_view(['GET', 'POST'])
-def api_movie(request, movie_id):
+def api_movie(request, id):
     try:
-        movie = Movie.objects.get(id=movie_id)
+        movie = Movie.objects.get(id=id)
     except Movie.DoesNotExist:
         raise Http404()
     if request.method == 'POST':
@@ -23,9 +23,10 @@ def api_movie(request, movie_id):
 
 # Favoritando filme:
 @api_view(['GET', 'POST'])
-def api_favoritar(request, title):
+def api_favoritar(request):
     if request.method == 'POST':
         movie = Movie.objects
+        
         serialized_movie = NoteSerializer(movie)
         newMovie = request.data
         movie.title = newMovie['title']
@@ -39,4 +40,4 @@ def api_all_movies(request):
     if request.method == 'GET':
         movie = Movie.objects
         serialized_movie = NoteSerializer(movie, many=True)
-    return Response(serialized_movie.data)
+        return Response(serialized_movie.data)

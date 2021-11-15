@@ -58,7 +58,7 @@ function App() {
       </div>
       <div className="App">
         {genreMovies.map((genre)=>(
-          <Movie title={genre.title}>{genreMovies}</Movie>
+          <Movie title={genre.title} imdb_id={genre.imdb_id}>{genreMovies}</Movie>
         ))}
       </div>
     </div>
